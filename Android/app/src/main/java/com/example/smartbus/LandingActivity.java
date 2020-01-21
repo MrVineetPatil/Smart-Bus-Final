@@ -147,8 +147,9 @@ public class LandingActivity extends AppCompatActivity {
         payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RechargeActivity.class);
-                startActivity(intent);
+                Uri uriUrl = Uri.parse("https://poojak97.github.io/Payment/");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
             }
         });
 
