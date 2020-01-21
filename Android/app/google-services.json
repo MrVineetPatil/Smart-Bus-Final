@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "256281462242",
+    "firebase_url": "https://smartbus-7f56a.firebaseio.com",
+    "project_id": "smartbus-7f56a",
+    "storage_bucket": "smartbus-7f56a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256281462242:android:6b9a3165f3bbd566b6a5bb",
+        "android_client_info": {
+          "package_name": "com.example.smartbus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256281462242-rahnghdtpdtci3pr7a1um63rlf448dpe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartbus",
+            "certificate_hash": "5989d1d7d9848b5c5bdc1b33ef629aa662e1f415"
+          }
+        },
+        {
+          "client_id": "256281462242-1dbn13am85ofrlje9gl1vogdbu3jvhpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTK0gt_SRtJHNrCLRHnmAGZ40Op7-n6TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256281462242-1dbn13am85ofrlje9gl1vogdbu3jvhpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SmartBus</string>
+    <string name="input_placeholder">Write a message</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="title_activity_security">SecurityActivity</string>
+    <string name="title_activity_live_track">Map</string>
+    <string name="title_activity_bus">BusActivity</string>
+    <string name="tab_text_1">Route</string>
+    <string name="tab_text_2">Seats</string>
+    <string name="tab_text_3">Track</string>
+
+</resources>

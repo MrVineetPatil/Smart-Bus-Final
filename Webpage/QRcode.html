@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Confirmation Page</title>
+    <style media="screen">
+      .container{
+    	  width: 40%;
+    	  border: 3px ;
+    	  padding: 80px 80px;
+        width:40%;
+      	margin:0 auto;
+      }
+
+      #barcode{
+        width: 40%;
+        border: 3px ;
+        padding: 80px 80px;
+        width:40%;
+        margin:0 60px;
+
+      }
+
+      .thanks{
+        text-align:center;
+        float:left;
+        margin:0 450px;
+        color:#88F337
+      }
+
+      .inp{
+        margin:0 90px;
+      }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title>Testing QR code</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+    	function generateBarCode()
+    	{
+    		var nric = $('#text').val();
+    		var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+    		$('#barcode').attr('src', url);
+    	}
+    </script>
+  </head>
+  <body>
+
+<h1 class="thanks">	&#9989;Your transaction is successful.Thank you!</h1>
+
+<div class="container">
+
+<div class="inp">
+
+
+    <input id="text" type="text"
+              value="Source_Destination_Busno_fb2e77d.47a0479900504cb3ab4a1f626d174d2d" style="Width:75%"
+              onblur='generateBarCode();' />
+              </div>
+<br>
+        <img id='barcode'
+              src="https://api.qrserver.com/v1/create-qr-code/?data=Source_Destination_Busno_fb2e77d.47a0479900504cb3ab4a1f626d174d2d&amp;size=100x100"
+              alt=""
+              title="Source_Destination_Busno_fb2e77d.47a0479900504cb3ab4a1f626d174d2d"
+              width="75%"
+              height="75%" />
+              </div>
+  </body>
+</html>
