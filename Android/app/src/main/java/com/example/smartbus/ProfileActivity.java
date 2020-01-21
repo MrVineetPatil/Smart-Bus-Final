@@ -41,6 +41,8 @@ public class ProfileActivity extends AppCompatActivity {
 //                                           }
                                        }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 //    private void setDataOnView() {

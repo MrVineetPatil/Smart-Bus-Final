@@ -63,6 +63,8 @@ public class ChatActivity extends AppCompatActivity implements
                 System.err.println(reason);
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     // Successfully connected to Scaledrone room

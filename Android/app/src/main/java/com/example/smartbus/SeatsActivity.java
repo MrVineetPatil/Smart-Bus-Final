@@ -35,6 +35,8 @@ public class SeatsActivity extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
 

@@ -9,6 +9,7 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -16,7 +17,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
-public class MyService extends Service {
+public class MyService extends Service{
     private FusedLocationProviderClient mFusedLocationClient;
     private double wayLatitude = 0.0, wayLongitude = 0.0;
 
@@ -33,6 +34,8 @@ public class MyService extends Service {
         player.start();
         requestLocationUpdates();
         return START_STICKY;
+
+
     }
 
 

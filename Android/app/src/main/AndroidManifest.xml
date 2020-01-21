@@ -25,13 +25,14 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".BusActivity"
+
             android:label="@string/title_activity_bus"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".TrackActivity2" />
-        <activity android:name=".Chat" />
-        <activity android:name=".RouteActivity" />
-        <activity android:name=".TrackActivity" />
-        <activity android:name=".SeatsActivity" />
+        <activity android:name=".TrackActivity2" android:parentActivityName=".TrackActivity" />
+        <activity android:name=".Chat" android:parentActivityName=".ProfileActivity"/>
+        <activity android:name=".RouteActivity" android:parentActivityName=".LandingActivity"/>
+        <activity android:name=".TrackActivity" android:parentActivityName=".LandingActivity"/>
+        <activity android:name=".SeatsActivity" android:parentActivityName=".LandingActivity"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,26 +47,30 @@
 
         <activity
             android:name=".LiveTrack"
+            android:parentActivityName=".LandingActivity"
             android:label="@string/title_activity_live_track" />
+
         <activity
             android:name=".MapsActivity"
+            android:parentActivityName=".LandingActivity"
             android:label="Maps Activity" />
-        <activity android:name=".RechargeActivity" />
+        <activity android:name=".RechargeActivity" android:parentActivityName=".LandingActivity"/>
         <activity
             android:name=".SecurityActivity"
+
             android:label="@string/title_activity_security"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LandingActivity"
             android:label="@string/title_activity_landing"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ChatActivity">
+        <activity android:name=".ChatActivity" android:parentActivityName=".LandingActivity">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".Splashscreen">
+        <activity android:name=".ProfileActivity" android:parentActivityName=".LandingActivity"/>
+        <activity android:name=".Splashscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -74,7 +79,7 @@
         </activity>
         <activity android:name=".MainActivity" />
 
-        <service android:name=".MyService" />
+        <service android:name=".MyService" android:parentActivityName=".LandingActivity" />
     </application>
 
 </manifest>

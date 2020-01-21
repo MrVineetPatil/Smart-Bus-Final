@@ -117,11 +117,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         startActivity(intent);
                     }
                 }
+
             }
             @Override
             public void onNothingSelected(AdapterView <?> parent) {
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
 

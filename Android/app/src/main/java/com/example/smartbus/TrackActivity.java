@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.TimePickerDialog;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +15,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.DatePicker;
 import android.widget.Toast;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,10 +26,13 @@ import java.util.Calendar;
 public class TrackActivity extends AppCompatActivity {
 
     ImageView chooseTime;
+    ImageView chooseDate;
     TextView mt;
     TextView mt1;
+    TextView d1;
     ImageView chooseTime1;
     TimePickerDialog timePickerDialog;
+    DatePickerDialog datePickerDialog;
     Calendar calendar;
     int currentHour;
     int currentMinute;
@@ -47,6 +54,38 @@ public class TrackActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        chooseDate=findViewById(R.id.cal);
+        d1 = findViewById(R.id.t);
+
+        chooseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+
+
+                datePickerDialog = new DatePickerDialog(TrackActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                d1.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
+
+
 
         chooseTime = findViewById(R.id.time1);
         mt = findViewById(R.id.t1);
@@ -98,5 +137,7 @@ public class TrackActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

@@ -1,4 +1,6 @@
 package com.example.smartbus;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +14,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,11 +30,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class SecurityActivity extends  AppCompatActivity {
     String mOption;
     private int mYear, mMonth, mDay;
     String mBus;
+    DatePickerDialog datePickerDialog;
+    TimePickerDialog timePickerDialog;
+    ImageView chooseDate;
+    TextView d1;
+    TextView mt;
+    TextView mt1;
+    TextView dt;
+    TextView dt1;
+    Calendar calendar;
+    int currentHour;
+    int currentMinute;
+    String amPm;
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     @Override
@@ -80,6 +99,88 @@ public class SecurityActivity extends  AppCompatActivity {
             }
         });
 
+        chooseDate=findViewById(R.id.cal);
+        d1 = findViewById(R.id.textView);
+
+        chooseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+
+
+                datePickerDialog = new DatePickerDialog(SecurityActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                d1.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
+
+        dt = findViewById(R.id.date);
+        mt = findViewById(R.id.text1);
+        dt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar = Calendar.getInstance();
+                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calendar.get(Calendar.MINUTE);
+
+                timePickerDialog = new TimePickerDialog(SecurityActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                        if (hourOfDay >= 12) {
+                            amPm = "PM";
+                        } else {
+                            amPm = "AM";
+                        }
+                        mt.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
+
+                    }
+                }, currentHour, currentMinute, false);
+
+                timePickerDialog.show();
+            }
+        });
+
+        dt1 = findViewById(R.id.date1);
+        mt1 = findViewById(R.id.t1);
+        dt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar = Calendar.getInstance();
+                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calendar.get(Calendar.MINUTE);
+
+                timePickerDialog = new TimePickerDialog(SecurityActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                        if (hourOfDay >= 12) {
+                            amPm = "PM";
+                        } else {
+                            amPm = "AM";
+                        }
+                        mt1.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
+
+                    }
+                }, currentHour, currentMinute, false);
+
+                timePickerDialog.show();
+            }
+        });
+
         Button b = findViewById(R.id.add);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +223,8 @@ public class SecurityActivity extends  AppCompatActivity {
                         });
             }
         });
+
+
 
 
     }
