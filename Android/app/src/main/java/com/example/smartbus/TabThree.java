@@ -20,6 +20,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -48,7 +49,9 @@ public class TabThree extends Fragment implements OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         LatLng MatthikereStop = new LatLng(13.1, 77.33);
-        Marker m = mMap.addMarker(new MarkerOptions().position(MatthikereStop).title("Matthikere Bus Stop"));
+        Marker m = mMap.addMarker(new MarkerOptions().position(MatthikereStop).icon(
+                BitmapDescriptorFactory.fromResource(R.drawable.bus)
+        ).title("Matthikere Bus Stop"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MatthikereStop));
         mMap.setMaxZoomPreference(13f);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10));

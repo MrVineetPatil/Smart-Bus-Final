@@ -130,6 +130,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -145,24 +147,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Add a marker in Sydney and move the camera
         LatLng MatthikereStop = new LatLng(13.1, 77.33);
-        m = mMap.addMarker(new MarkerOptions().position(MatthikereStop).title("Matthikere Bus Stop"));
+        m = mMap.addMarker(new MarkerOptions().position(MatthikereStop).icon(
+                BitmapDescriptorFactory.fromResource(R.drawable.busstop1)
+        ).title("Matthikere Bus Stop"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MatthikereStop));
         mMap.setMaxZoomPreference(13f);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
 
         LatLng Bus500 = new LatLng(13.15, 77.33);
         mMap.addMarker(new MarkerOptions().position(Bus500).icon(
-                BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
+                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("500, ETA: 8:20am"));
 
         LatLng Bus500BA = new LatLng(13.12, 77.3121);
         mMap.addMarker(new MarkerOptions().position(Bus500BA).icon(
-                BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
+                BitmapDescriptorFactory.fromResource(R.drawable.bus)
         ).title("500BA, ETA: 8:05am"));
 
         LatLng Bus500D = new LatLng(13.1345, 77.3122);
         mMap.addMarker(new MarkerOptions().position(Bus500D).icon(
-                BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)
+                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("500D, ETA: 8:15am"));
 
         PolylineOptions p = new PolylineOptions();
