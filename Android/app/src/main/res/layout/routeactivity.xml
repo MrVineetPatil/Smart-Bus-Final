@@ -22,6 +22,15 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="10dp"
+            tools:context=".RouteActivity">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewRoutes1"
             android:layout_width="match_parent"
@@ -30,7 +39,9 @@
             android:scrollbars="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/map"></androidx.recyclerview.widget.RecyclerView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
