@@ -44,9 +44,13 @@ public class TrackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_track);
 
         Bus[] myListData = new Bus[] {
-                new Bus("500"),
-                new Bus("500BA"),
-                new Bus("500D"),
+                new Bus("NITT-2"),
+                new Bus("285-A"),
+                new Bus("285"),
+                new Bus("285-AA"),
+                new Bus("285-C"),
+                new Bus("285-CA"),
+                new Bus("BMSIT-4"),
         };
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

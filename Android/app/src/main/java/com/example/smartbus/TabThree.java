@@ -48,10 +48,10 @@ public class TabThree extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap mMap) {
 
         // Add a marker in Sydney and move the camera
-        LatLng MatthikereStop = new LatLng(13.1, 77.33);
+        LatLng MatthikereStop = new LatLng(13.28665, 77.587372);
         Marker m = mMap.addMarker(new MarkerOptions().position(MatthikereStop).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.bus)
-        ).title("Matthikere Bus Stop"));
+        ).title("NMIT college"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MatthikereStop));
         mMap.setMaxZoomPreference(13f);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10));

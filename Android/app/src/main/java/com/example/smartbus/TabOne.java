@@ -22,12 +22,13 @@ public class TabOne extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         Routes[] myListData = new Routes[] {
-                new Routes("Hebbal", "5/50"),
-                new Routes("BEL Circle", "0/50"),
-                new Routes("Gokula", "10/50"),
-                new Routes("Matthikere", "15/50"),
-                new Routes("Ramaiah College", "12/50"),
-                new Routes("Yesvantpur", "0/50")
+                new Routes("NMIT Bus Stand", "5/50"),
+                new Routes("Harohalli", "0/50"),
+                new Routes("Ganataganahalli", "10/50"),
+                new Routes("Nagenahalli", "15/50"),
+                new Routes("Nagenahalli Gate", "12/50"),
+                new Routes("CPRI", "0/50"),
+                new Routes("CS-Heritage Estate", "12/50")
         };
 
         RoutesAdapter adapter = new RoutesAdapter(myListData);
