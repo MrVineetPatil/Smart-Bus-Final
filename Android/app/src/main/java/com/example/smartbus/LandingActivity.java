@@ -119,73 +119,21 @@ public class LandingActivity extends AppCompatActivity {
 
         });
 
-        Switch s = findViewById(R.id.switch1);
-        s.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (i==1) {
-                    stopService(new Intent(getApplicationContext(), MyService.class));
-                    i=0;
-                }
-                else {
-                    startService(new Intent(getApplicationContext(), MyService.class));
-                    i=1;
-                }
-            }
-        });
+//        Switch s = findViewById(R.id.switch1);
+//        s.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (i==1) {
+//                    stopService(new Intent(getApplicationContext(), MyService.class));
+//                    i=0;
+//                }
+//                else {
+//                    startService(new Intent(getApplicationContext(), MyService.class));
+//                    i=1;
+//                }
+//            }
+//        });
 
-        ImageView track = findViewById(R.id.imageView);
-        track.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageView payment = findViewById(R.id.imageView2);
-        payment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uriUrl = Uri.parse("https://poojak97.github.io/Payment/");
-                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(launchBrowser);
-            }
-        });
-
-        ImageView connect = findViewById(R.id.imageView3);
-        connect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
-                WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-                if (wifiInfo.getBSSID()!=null) {
-                    if (wifiInfo.getBSSID().equals("7c:95:f3:73:1f:89")) {
-                        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                        startActivity(intent);
-                    }
-                    else {
-                        Toast.makeText(getApplicationContext(), "Connect to our WiFi and then try", Toast.LENGTH_LONG).show();
-                    }
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "Connect to our WiFi and then try", Toast.LENGTH_LONG).show();
-                }
-
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        ImageView security = findViewById(R.id.imageView5);
-        security.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SecurityActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
@@ -203,4 +151,50 @@ public class LandingActivity extends AppCompatActivity {
     }
 
 
+    public void fn1(View view) {
+        Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+        startActivity(intent);
+    }
+
+    public void fn2(View view) {
+        Uri uriUrl = Uri.parse("https://poojak97.github.io/Payment/");
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
+
+    public void fn3(View view) {
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+        if (wifiInfo.getBSSID()!=null) {
+            if (wifiInfo.getBSSID().equals("7c:95:f3:73:1f:89")) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Connect to our WiFi and then try", Toast.LENGTH_LONG).show();
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Connect to our WiFi and then try", Toast.LENGTH_LONG).show();
+        }
+
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void fn4(View view) {
+        Intent intent = new Intent(getApplicationContext(), SecurityActivity.class);
+        startActivity(intent);
+    }
+
+    public void fn5(View view) {
+                if (i==1) {
+                    stopService(new Intent(getApplicationContext(), MyService.class));
+                    i=0;
+                }
+                else {
+                    startService(new Intent(getApplicationContext(), MyService.class));
+                    i=1;
+                }
+    }
 }

@@ -3,4 +3,9 @@
     <color name="colorPrimary">#0B6AAD</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#0B6AAD</color>
+    <color name="lightgray">#EDEDED</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="pink">#fe104d</color>
+    <color name="green">#00bfa5</color>
+    <color name="yello">#ffb300</color>
 </resources>
