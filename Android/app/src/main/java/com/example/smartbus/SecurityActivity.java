@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,6 +45,7 @@ public class SecurityActivity extends  AppCompatActivity {
     TextView mt1;
     TextView dt;
     TextView dt1;
+    String da, t1, t2;
     Calendar calendar;
     int currentHour;
     int currentMinute;
@@ -56,6 +58,8 @@ public class SecurityActivity extends  AppCompatActivity {
         setContentView(R.layout.activity_security);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final EditText x = findViewById(R.id.editText2);
 
         //DatabaseReference mRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://smartbus-7f56a.firebaseio.com/");
 
@@ -111,8 +115,7 @@ public class SecurityActivity extends  AppCompatActivity {
                 int mMonth = c.get(Calendar.MONTH); // current month
                 int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                 // date picker dialog
-
-
+                
                 datePickerDialog = new DatePickerDialog(SecurityActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -120,9 +123,9 @@ public class SecurityActivity extends  AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
-                                d1.setText(dayOfMonth + "/"
+                                da = (dayOfMonth + "/"
                                         + (monthOfYear + 1) + "/" + year);
-
+                                d1.setText(da);
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -146,7 +149,8 @@ public class SecurityActivity extends  AppCompatActivity {
                         } else {
                             amPm = "AM";
                         }
-                        mt.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
+                        t1 = String.format("%02d:%02d", hourOfDay, minutes) + amPm;
+                        mt.setText(t1);
 
                     }
                 }, currentHour, currentMinute, false);
@@ -172,8 +176,8 @@ public class SecurityActivity extends  AppCompatActivity {
                         } else {
                             amPm = "AM";
                         }
-                        mt1.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
-
+                        t2 = String.format("%02d:%02d", hourOfDay, minutes) + amPm;
+                        mt1.setText(t2);
                     }
                 }, currentHour, currentMinute, false);
 
@@ -185,51 +189,18 @@ public class SecurityActivity extends  AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mDatabase.child("Complaints").child(mOption).child("2").child("Bus_no").setValue(mBus);
+                mDatabase.child("Complaints").child(mOption).child("2").child("Date").setValue(da);
+                mDatabase.child("Complaints").child(mOption).child("2").child("Description").setValue(x.getText().toString());
+                mDatabase.child("Complaints").child(mOption).child("2").child("End").setValue(t2);
+                mDatabase.child("Complaints").child(mOption).child("2").child("Start").setValue(t1);
+                Toast toast = Toast.makeText(getApplicationContext(), "Complaint Registered", Toast.LENGTH_SHORT);
+                toast.show();
                 Intent intent = new Intent(getApplicationContext(), LandingActivity.class);
                 startActivity(intent);
-                JSONObject obj = new JSONObject();
-                try {
-                    obj.put("bus_no", mBus);
-                    obj.put("problem", mOption);
-                    obj.put("d", mDay);
-                    obj.put("m", mMonth);
-                    obj.put("y", mYear);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                mDatabase.child("complaints").setValue(obj)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Context context = getApplicationContext();
-                                CharSequence text = "Added to firebase";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Context context = getApplicationContext();
-                                CharSequence text = "not Added to firebase";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(context, text, duration);
-                                toast.show();
-                            }
-                        });
             }
         });
-
-
-
-
     }
-
-
 
     public void showDatePicker (View v){
             DialogFragment newFragment = new MyDatePickerFragment();
