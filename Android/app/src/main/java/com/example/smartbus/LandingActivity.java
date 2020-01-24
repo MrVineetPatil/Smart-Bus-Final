@@ -34,7 +34,7 @@ public class LandingActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     private View view;
-    int i = 0;
+    int i = 1;
     public static final String GOOGLE_ACCOUNT = "google_account";
     String message="";
 
@@ -70,7 +70,7 @@ public class LandingActivity extends AppCompatActivity {
 //                    return;
 //                }
 //                startActivity(intent);
-                String eNo = "7250996657";
+                String eNo = "9980950485";
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse("tel:" + eNo));
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {

@@ -148,105 +148,54 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng NMIT = new LatLng(13.128665, 77.587372);
-        m = mMap.addMarker(new MarkerOptions().position(NMIT).icon(
+        LatLng l1 = new LatLng(13.128665, 77.587372);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(l1));
+        mMap.setMaxZoomPreference(17f);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
+        mMap.addMarker(new MarkerOptions().position(l1).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.bus)
-        ).title("NITT-2 BUS"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(NMIT));
-        mMap.setMaxZoomPreference(13f);
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+        ).title("NITT-2 BUS, ETA: 13:00"));
+
+        LatLng l2 = new LatLng(13.128662, 77.587370);
+        mMap.addMarker(new MarkerOptions().position(l2).icon(
+                BitmapDescriptorFactory.fromResource(R.drawable.bus)
+        ).title("NITT-1 BUS, ETA: 13:30"));
 
         LatLng BusNITT_2 = new LatLng(13.131092, 77.590195);
         mMap.addMarker(new MarkerOptions().position(BusNITT_2).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop1)
         ).title("NMIT Bus Stand"));
 
-        LatLng Bus285_A = new LatLng(13.13072, 77.580218);
-        mMap.addMarker(new MarkerOptions().position(Bus285_A).icon(
+        LatLng Harohalli = new LatLng(13.13072, 77.580218);
+        mMap.addMarker(new MarkerOptions().position(Harohalli).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("Harohalli"));
 
-        LatLng BusNITT_21 = new LatLng(13.13072, 77.580218);
-        mMap.addMarker(new MarkerOptions().position(BusNITT_21).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Harohalli"));
-
-        LatLng BusNITT_22 = new LatLng(13.143879, 77.588664);
-        mMap.addMarker(new MarkerOptions().position(BusNITT_22).icon(
+        LatLng Gantaganahalli = new LatLng(13.143879, 77.588664);
+        mMap.addMarker(new MarkerOptions().position(Gantaganahalli).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("Gantaganahalli"));
 
-        LatLng BusNITT_23 = new LatLng(13.132118, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(BusNITT_23).icon(
+        LatLng Nagenahalli = new LatLng(13.132118, 77.574804);
+        mMap.addMarker(new MarkerOptions().position(Nagenahalli).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("Nagenahalli"));
 
-        LatLng Bus285_A1 = new LatLng(13.132118, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_A1).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Nagenahalli"));
-
-        LatLng BusNITT_24 = new LatLng(13.130729, 77.571594);
-        mMap.addMarker(new MarkerOptions().position(BusNITT_24).icon(
+        LatLng Nagenahalli_Gate = new LatLng(13.130729, 77.571594);
+        mMap.addMarker(new MarkerOptions().position(Nagenahalli_Gate).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("Nagenahalli Gate"));
 
-        LatLng Bus285 = new LatLng(13.130729, 77.571594);
-        mMap.addMarker(new MarkerOptions().position(Bus285).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Nagenahalli Gate"));
-
-        LatLng Bus285_A2 = new LatLng(13.130729, 77.571594);
-        mMap.addMarker(new MarkerOptions().position(Bus285_A2).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Nagenahalli Gate"));
-
-        LatLng Bus285_AA = new LatLng(13.130729, 77.571594);
-        mMap.addMarker(new MarkerOptions().position(Bus285_AA).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Nagenahalli Gate"));
-
-        LatLng Bus285_C = new LatLng(13.130729, 77.571594);
-        mMap.addMarker(new MarkerOptions().position(Bus285_C).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("Nagenahalli Gate"));
-
-        LatLng Bus285_1 = new LatLng(13.24575, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_1).icon(
+        LatLng CPRI = new LatLng(13.125531, 77.571717);
+        mMap.addMarker(new MarkerOptions().position(CPRI).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("CPRI"));
 
-        LatLng Bus285_A3 = new LatLng(13.24575, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_A3).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("CPRI"));
-
-        LatLng Bus285_AA1 = new LatLng(13.24575, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_AA1).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("CPRI"));
-
-        LatLng Bus285_C1 = new LatLng(13.24575, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_C1).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("CPRI"));
-
-        LatLng Bus285_CA = new LatLng(13.24575, 77.574804);
-        mMap.addMarker(new MarkerOptions().position(Bus285_CA).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop)
-        ).title("CPRI"));
-
-        LatLng BusBMSIT_4 = new LatLng(13.119464, 77.577454);
-        mMap.addMarker(new MarkerOptions().position(BusBMSIT_4).icon(
+        LatLng CS_Heritage_Estate = new LatLng(13.119464, 77.577454);
+        mMap.addMarker(new MarkerOptions().position(CS_Heritage_Estate).icon(
                 BitmapDescriptorFactory.fromResource(R.drawable.busstop)
         ).title("CS-Heritage Estate"));
-
-
-        PolylineOptions p = new PolylineOptions();
-        PolylineOptions p1 = new PolylineOptions();
-
-        //mMap.addPolyline(p.add(Bus500D).add(Bus500BA).add(MatthikereStop).color(Color.GREEN).geodesic(true));
-        //mMap.addPolyline(p1.add(Bus500).add(MatthikereStop).color(Color.GREEN).geodesic(true));
 
     }
 }
