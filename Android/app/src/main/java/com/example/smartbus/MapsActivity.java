@@ -150,15 +150,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Add a marker in Sydney and move the camera
         LatLng NMIT = new LatLng(13.128665, 77.587372);
         m = mMap.addMarker(new MarkerOptions().position(NMIT).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.busstop1)
-        ).title("NMIT college"));
+                BitmapDescriptorFactory.fromResource(R.drawable.bus)
+        ).title("NITT-2 BUS"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(NMIT));
         mMap.setMaxZoomPreference(13f);
         mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
 
         LatLng BusNITT_2 = new LatLng(13.131092, 77.590195);
         mMap.addMarker(new MarkerOptions().position(BusNITT_2).icon(
-                BitmapDescriptorFactory.fromResource(R.drawable.bus)
+                BitmapDescriptorFactory.fromResource(R.drawable.busstop1)
         ).title("NMIT Bus Stand"));
 
         LatLng Bus285_A = new LatLng(13.13072, 77.580218);

@@ -256,8 +256,8 @@
                     android:gravity="center"
                     android:text="Know your nearby places"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
-
+                    android:textColor="@android:color/darker_gray"
+                    android:onClick="fn6"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

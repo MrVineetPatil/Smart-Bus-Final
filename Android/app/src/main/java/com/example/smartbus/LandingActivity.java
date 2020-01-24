@@ -34,7 +34,7 @@ public class LandingActivity extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     private View view;
-    int i = 1;
+    int i = 0;
     public static final String GOOGLE_ACCOUNT = "google_account";
     String message="";
 
@@ -118,22 +118,6 @@ public class LandingActivity extends AppCompatActivity {
             }
 
         });
-
-//        Switch s = findViewById(R.id.switch1);
-//        s.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (i==1) {
-//                    stopService(new Intent(getApplicationContext(), MyService.class));
-//                    i=0;
-//                }
-//                else {
-//                    startService(new Intent(getApplicationContext(), MyService.class));
-//                    i=1;
-//                }
-//            }
-//        });
-
     }
 
 
@@ -196,5 +180,11 @@ public class LandingActivity extends AppCompatActivity {
                     startService(new Intent(getApplicationContext(), MyService.class));
                     i=1;
                 }
+    }
+
+    public void fn6(View view) {
+        Uri uriUrl = Uri.parse("https://www.hackathon.com/event/nmit-hacks-2020-5dcd86f81ddca0001b3dd5ce");
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
     }
 }
